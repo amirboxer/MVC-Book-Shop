@@ -42,6 +42,7 @@ function onRemoveBook(bookId) {
     // dom
     var elBook =  _findBookElById(bookId)
     if (elBook) render()
+    handleDeleteBookModal()
 }
 
 function onUpdateBook(bookId) {
@@ -71,10 +72,16 @@ function onShowDetails(bookId) {
     
     // dom
     var elBook =  _findBookElById(bookId)
-    var elDialog = document.querySelector('dialog')
+    var elDialog = document.querySelector('.details-modal')
     var elModalText = elDialog.querySelector('pre')
     elModalText.innerHTML = JSON.stringify(bookObject, null, 1)
     elDialog. showModal()
+}
+
+function handleDeleteBookModal() {
+    var elDeleteBookModal = document.querySelector('.book-deleted-modal')
+    elDeleteBookModal.show()
+    setTimeout(() => elDeleteBookModal.close(), 2000)
 }
 
 function _findBookElById(bookId) {
