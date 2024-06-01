@@ -62,6 +62,9 @@ function onAddBook() {
     var bookTitle = newBook[0].trim()
     var bookPrice = +newBook[1]
 
+    // Prevent adding a book with a blank title or price
+    if (!bookPrice || !bookTitle) return
+
     addBook(bookTitle, bookPrice)
     render() //TODO
 }

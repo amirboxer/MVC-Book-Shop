@@ -2,7 +2,7 @@
 
 function generateId(length = 6) {
 	var id = ''
-	var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+	var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 	for (var i = 0; i < length; i++) {
 		id += possible.charAt(getRandomInt(0, possible.length))
