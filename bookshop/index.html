@@ -19,10 +19,13 @@
                     <th>Actions</th>
                 </tr>
             </thead>
-            <tbody>
-            </tbody>
+            <tbody></tbody>
         </table>
-        <button class="add-book" onclick="onAddBook()">Add new book</button>        
+        <button class="add-book" onclick="onAddBook()">Add new book</button>      
+        <div class="modal hidden">
+            <pre></pre>
+            <button onclick="onCloseModal()">x</button>
+        </div>
     </main>
     <footer></footer>
     <script src="js/services/utils.service.js"></script>
