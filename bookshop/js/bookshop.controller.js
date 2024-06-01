@@ -1,4 +1,5 @@
 'use strict'
+var gFilterBy = ''
 
 function onInit() {
     render()
@@ -7,7 +8,7 @@ function onInit() {
 function render() {
     const elTable = document.querySelector('tbody')
 
-    const strHtmls = getBooks().map(book => `
+    const strHtmls = getBooks(gFilterBy).map(book => `
         <tr id="${book.id}">
             <td class="title">${book.title}</td>
             <td class="price">${book.price}</td>
@@ -20,6 +21,18 @@ function render() {
     ).join('')
 
     elTable.innerHTML = strHtmls
+}
+
+function onFilterBy(elInput) {
+    gFilterBy = elInput.value.toUpperCase()
+    render()
+}
+
+function onClearSearch() {
+    var elSearchInput = document.querySelector('.search-input')
+    elSearchInput.value = ''
+    gFilterBy = ''
+    render()
 }
 
 function onRemoveBook(bookId) {

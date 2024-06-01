@@ -11,6 +11,10 @@
 <body onload="onInit()">
     <header></header>
     <main>
+        <section class="filter">
+            <input class="search-input" type="text" onkeyup="onFilterBy(this)" placeholder="Search for names.." title="Type in a name">
+            <button onclick="onClearSearch()">Clear</button>
+        </section>
         <table>
             <thead>
                 <tr>

@@ -14,8 +14,8 @@ _createBookObjs()
 
 var gBooks
 
-function getBooks() {
-    return gBooks
+function getBooks(filterBy) {
+    return gBooks.filter(book => book.title.toUpperCase().startsWith(filterBy))
 }
 
 function findBookObjById(bookId) {
