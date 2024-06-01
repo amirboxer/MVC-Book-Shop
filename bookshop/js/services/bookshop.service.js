@@ -20,5 +20,3 @@ var gBooks = [
 function getBooks() {
     return gBooks
 }    
-
-function render() {}
