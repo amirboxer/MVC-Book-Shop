@@ -5,7 +5,7 @@ function onInit() {
 }
 
 function render() {
-    const elTable = document.querySelector('table')
+    const elTable = document.querySelector('tbody')
 
     const strHtmls = getBooks().map(book => `
         <tr id="${book.id}">
@@ -14,11 +14,19 @@ function render() {
             <td>
                 <button class="read">Read</button>
                 <button class="update">Update</button>
-                <button class="delete">Write</button>
+                <button class="delete" onclick="onRemoveBook('${book.id}')">Delete</button>
             </td>
         </tr>`
     ).join('')
 
-    elTable.innerHTML += strHtmls
+    elTable.innerHTML = strHtmls
+}
 
+function onRemoveBook(bookId) {
+    // model
+    removeBook(bookId)
+
+    // dom
+    var elBook = document.querySelector(`#${bookId}`)
+    if (elBook) render()
 }
