@@ -27,7 +27,7 @@ function onRemoveBook(bookId) {
     removeBook(bookId)
 
     // dom
-    var elBook = document.querySelector(`#${bookId}`)
+    var elBook =  _findBookElById(bookId)
     if (elBook) render()
 }
 
@@ -41,4 +41,18 @@ function onUpdateBook(bookId) {
     var elBookPriceTag = document.querySelector(`#${bookId} .price`)
     elBookPriceTag.innerHTML = newPrice
     //if (elBook) render()
+}
+
+function onAddBook() {
+    var newBook = prompt('name and price? (seperate by comma)').split(',')
+    var bookTitle = newBook[0]
+    var bookPrice = +newBook[1]
+
+    addBook(bookTitle, bookPrice)
+    render()
+}
+
+function _findBookElById(bookId) {
+    return document.querySelector(`#${bookId}`)
+
 }

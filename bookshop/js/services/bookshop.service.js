@@ -21,6 +21,16 @@ function getBooks() {
     return gBooks
 }
 
+function _createBookObj(title, price, imgUrl = null) {
+    var book =  {
+        id: generateId(),
+        title,
+        price,
+        imgUrl
+    }
+    return book
+}
+
 function removeBook(bookId) {
     gBooks.splice(_getBookById(bookId), 1)
 }
@@ -32,6 +42,11 @@ function updateBook(bookId, newPrice) {
 function _getBookById(bookId) {
     return gBooks.findIndex(book => book.id === bookId)
 }
+
+function addBook(title, price) {
+    gBooks.unshift(_createBookObj(title, price))
+}
+
 
 // function _bookActionWraper(func) {
 //     function inner(bookID, ...args) {
