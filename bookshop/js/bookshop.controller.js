@@ -58,15 +58,10 @@ function onShowDetails(bookId) {
     
     // dom
     var elBook =  _findBookElById(bookId)
-    var elModal = document.querySelector('.modal')
-    var elModalText = elModal.querySelector('pre')
+    var elDialog = document.querySelector('dialog')
+    var elModalText = elDialog.querySelector('pre')
     elModalText.innerHTML = JSON.stringify(bookObject, null, 1)
-    elModal.classList.remove('hidden')
-}
-
-function onCloseModal() {
-    var elModal = document.querySelector('.modal')
-    elModal.classList.add('hidden')
+    elDialog. showModal()
 }
 
 function _findBookElById(bookId) {

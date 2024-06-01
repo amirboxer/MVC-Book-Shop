@@ -22,10 +22,12 @@
             <tbody></tbody>
         </table>
         <button class="add-book" onclick="onAddBook()">Add new book</button>      
-        <div class="modal hidden">
-            <pre></pre>
-            <button onclick="onCloseModal()">x</button>
-        </div>
+        <dialog>
+            <form method="dialog">
+                <pre></pre>
+                <button>x</button>
+            </form>
+        </dialog>
     </main>
     <footer></footer>
     <script src="js/services/utils.service.js"></script>
