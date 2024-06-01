@@ -10,12 +10,9 @@
 //    1
 
 'use strict'
+_createBookObjs()
 
-var gBooks = [
-    { id: 'df45ef', title: 'The Advantures of lori Ipsi', price: 120, imgUrl: null },
-    { id: 'dj45kd', title: 'World Atlas', price: 300, imgUrl: null },
-    { id: 'bnsk53', title: 'Zorba the Greek', price: 87, imgUrl: null }
-]
+var gBooks
 
 function getBooks() {
     return gBooks
@@ -37,10 +34,12 @@ function _createBookObj(title, price, imgUrl = null) {
 
 function removeBook(bookId) {
     gBooks.splice(_getBookIndexById(bookId), 1)
+    _saveBooks()
 }
 
 function updateBook(bookId, newPrice) {
     gBooks[_getBookIndexById(bookId)].price = newPrice
+    _saveBooks()
 }
 
 function _getBookIndexById(bookId) {
@@ -49,7 +48,26 @@ function _getBookIndexById(bookId) {
 
 function addBook(title, price) {
     gBooks.unshift(_createBookObj(title, price))
+    _saveBooks()
 }
+
+function _createBookObjs() {
+        gBooks = loadFromStorage('books')    
+        if(gBooks && gBooks.length !== 0) return
+
+        gBooks = [
+            _createBookObj('The Advantures of lori Ipsi', 120),
+            _createBookObj('World Atlas', 300),
+            _createBookObj('Zorba the Greek', 87)
+        ]
+
+        _saveBooks()
+}
+
+function _saveBooks() {
+    saveToStorage('books', gBooks)
+}
+
 
 
 // function _bookActionWraper(func) {
