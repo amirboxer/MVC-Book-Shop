@@ -46,9 +46,10 @@ function onRemoveBook(bookId) {
 }
 
 function onUpdateBook(bookId) {
-    // model
     var newPrice = +prompt('new price?')
     if (!newPrice) return
+    
+    // model
     updateBook(bookId, newPrice)
 
     // dom rendering
