@@ -13,6 +13,7 @@ function render() {
             <td>${index + 1}</td>
             <td class="title">${book.title}</td>
             <td class="price">${book.price}</td>
+            <td class="rating">${book.rating}</td>
             <td>
                 <button class="read" onclick=onShowDetails('${book.id}')>Details</button>
                 <button class="update" onclick="onUpdateBook('${book.id}')">Update</button>
