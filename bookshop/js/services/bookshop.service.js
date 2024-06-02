@@ -22,12 +22,14 @@ function findBookObjById(bookId) {
     return gBooks.find(book => book.id === bookId)
 }
 
-function _createBookObj(title, price, imgUrl = null) {
+function _createBookObj(title, imgUrl = null) {
+    
     var book =  {
         id: generateId(),
         title,
-        price,
-        imgUrl
+        price: getRandomInt(20, 800),
+        imgUrl, 
+        rating: getRandomInt(1, 5)
     }
     return book
 }
@@ -54,13 +56,7 @@ function addBook(title, price) {
 function _createBookObjs() {
         gBooks = loadFromStorage('books')    
         if(gBooks && gBooks.length !== 0) return
-
-        gBooks = [
-            _createBookObj('The Advantures of lori Ipsi', 120),
-            _createBookObj('World Atlas', 300),
-            _createBookObj('Zorba the Greek', 87)
-        ]
-
+        gBooks = exampleBooksArr.map(book => _createBookObj(book.title, book.imgUrl))
         _saveBooks()
 }
 

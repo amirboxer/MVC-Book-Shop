@@ -8,8 +8,9 @@ function onInit() {
 function render() {
     const elTable = document.querySelector('tbody')
 
-    const strHtmls = getBooks(gFilterBy).map(book => `
+    const strHtmls = getBooks(gFilterBy).map((book, index) => `
         <tr id="${book.id}">
+            <td>${index + 1}</td>
             <td class="title">${book.title}</td>
             <td class="price">${book.price}</td>
             <td>
